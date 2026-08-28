@@ -60,9 +60,3 @@ workflows:
       - solace-box-debug.apk
       - android/app/build/outputs/**/*.apk
 
-    publishing:
-      email:
-        recipients: []
-        notify:
-          success: true
-          failure: true
