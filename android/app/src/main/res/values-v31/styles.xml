@@ -1,0 +1,13 @@
+<resources>
+    <style name="Theme.SolaceBox" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/solace_black</item>
+        <item name="android:navigationBarColor">@color/solace_black</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowSplashScreenBackground">@color/solace_black</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/solace_box_icon</item>
+        <item name="android:windowSplashScreenAnimationDuration">500</item>
+        <item name="android:postSplashScreenTheme">@style/Theme.SolaceBox</item>
+    </style>
+</resources>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420">
+<defs>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8d3cff"/><stop offset=".48" stop-color="#6b1fff"/><stop offset=".72" stop-color="#11b7ff"/><stop offset="1" stop-color="#7a2cff"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7a1"/><stop offset=".45" stop-color="#ffd24a"/><stop offset="1" stop-color="#ff9b1a"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g transform="translate(35 18)" filter="url(#glow)">
+ <path d="M175 42 L250 92 L247 200 L176 258 L101 208 L105 99 Z" fill="#08051b" stroke="url(#g)" stroke-width="20"/>
+ <path d="M160 80 C120 93 117 133 146 150 L204 184 C228 198 224 224 197 236 C173 247 143 232 127 216" fill="none" stroke="url(#g)" stroke-width="28" stroke-linecap="round"/>
+ <path d="M191 112 L191 180 L242 146 Z" fill="white"/>
+ <path d="M137 43 L151 15 L164 42 L189 22 L188 52 L216 42 L201 68 L171 60 Z" fill="url(#gold)" stroke="#fff5b0" stroke-width="3"/>
+</g>
+<text x="320" y="177" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="100" font-weight="900" letter-spacing="-3">SOLACE</text>
+<text x="735" y="177" fill="url(#g)" font-family="Arial, Helvetica, sans-serif" font-size="100" font-weight="900" letter-spacing="-3">BOX</text>
+<text x="324" y="230" fill="#d7d4e9" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="600" letter-spacing="8">WE BUILD IT. YOU USE IT.</text>
+</svg>

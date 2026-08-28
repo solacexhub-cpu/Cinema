@@ -1,0 +1,23 @@
+{
+  "brand": {
+    "name": "Solace Box",
+    "tagline": "We build it. You use it.",
+    "theme": "cinematic-neon"
+  },
+  "features": {
+    "cinematicTheme": true,
+    "offlineReady": true,
+    "multiSubtitles": true,
+    "shareReceive": true,
+    "smartSearch": true,
+    "adSystem": "opt-in"
+  },
+  "ads": {
+    "enabledByDefault": false,
+    "placements": [
+      "home",
+      "discover",
+      "library"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+workflows:
+  solace-box-android:
+    name: Solace Box - Android APK
+    max_build_duration: 60
+    instance_type: linux_x2
+    environment:
+      node: 22
+      java: 17
+      vars:
+        PNPM_VERSION: "11.8.0"
+
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: development
+          include: true
+      cancel_previous_builds: true
+
+    scripts:
+      - name: Install pnpm
+        script: |
+          corepack enable
+          corepack prepare pnpm@$PNPM_VERSION --activate
+
+      - name: Install web dependencies
+        script: pnpm install --frozen-lockfile
+
+      - name: Build Solace Box web app
+        script: pnpm build
+
+      - name: Test
+        script: pnpm test
+
+      - name: Lint
+        script: pnpm lint
+
+      - name: Prepare Android web assets
+        script: |
+          rm -rf android/app/src/main/assets/web
+          mkdir -p android/app/src/main/assets/web
+          cp -R build/. android/app/src/main/assets/web/
+
+      - name: Setup Gradle 8.10.2
+        script: |
+          curl -fsSL https://services.gradle.org/distributions/gradle-8.10.2-bin.zip -o /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /tmp
+          echo "export PATH=/tmp/gradle-8.10.2/bin:\$PATH" >> $CM_ENV
+
+      - name: Build Android APK (debug)
+        script: |
+          cd android
+          gradle --no-daemon --stacktrace assembleDebug
+
+      - name: Rename APK
+        script: |
+          cp android/app/build/outputs/apk/debug/app-debug.apk solace-box-debug.apk
+
+    artifacts:
+      - solace-box-debug.apk
+      - android/app/build/outputs/**/*.apk
+
+    publishing:
+      email:
+        recipients: []
+        notify:
+          success: true
+          failure: true

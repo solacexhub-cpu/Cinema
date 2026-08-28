@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.solacebox.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.solacebox.app'
+        minSdk 23
+        targetSdk 35
+        versionCode 50039
+        versionName '5.0.0-beta.39'
+    }
+
+    buildTypes {
+        debug { applicationIdSuffix '.debug' }
+        release {
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    sourceSets {
+        main { assets.srcDirs = ['src/main/assets'] }
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1'
+}
